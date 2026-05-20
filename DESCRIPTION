@@ -17,8 +17,10 @@ Imports:
     sf,
     dplyr
 Suggests:
-    roxyglobals,
-    testthat
+    knitr,
+    rmarkdown,
+    testthat,
+    roxyglobals (>= 1.0.0)
 Roxygen: list(markdown = TRUE, roclets = c("collate", "namespace", "rd",
     "roxyglobals::global_roclet"))
 LazyData: true
@@ -26,3 +28,6 @@ Config/roxyglobals/filename: globals.R
 Config/roxyglobals/unique: FALSE
 Encoding: UTF-8
 Config/roxygen2/version: 8.0.0
+VignetteBuilder: knitr
+Remotes:  
+    anthonynorth/roxyglobals

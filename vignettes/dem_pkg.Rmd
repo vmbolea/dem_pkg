@@ -1,0 +1,81 @@
+---
+title: "Getting Started with dem"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{dem_pkg}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.width=10, 
+  fig.height=6, 
+  out.width="100%"
+)
+```
+
+## Installation
+
+```{r install, eval=FALSE}
+# Install from GitHub
+remotes::install_github(
+  repo = "vmbolea/dem_pkg",
+  ref = "main",
+  auth_token = "your_github_PAT",
+  dependencies = TRUE,
+  force = TRUE
+)
+```
+
+Source code available at: [github.com/vmbolea/dem_pkg](https://github.com/vmbolea/dem_pkg)
+
+### Load libraries
+```{r libraries}
+library(dem)
+
+library(terra) |> 
+  suppressWarnings() |> 
+  suppressMessages()
+```  
+
+
+### Download dem files
+```{r download}
+#subset one county
+jacetania <- jacetania |>
+  sf::st_set_geometry("geom")
+
+
+#download dem tiles for the county
+dem <- dem_download(
+  polygon = jacetania,
+  resolution = 30,
+  output = "raster"
+)
+```
+
+
+### Plot dem and polygon
+```{r plot-dem}
+#plot dem and polygons
+plot(dem)
+lines(terra::vect(jacetania))
+```
+
+### Compute topographic indicators
+```{r indicators}
+#compute topographic indicators
+topography <- dem_indicators(
+  dem = dem
+)
+```
+
+### Plot topographic indicators
+```{r plot-topography}
+#plot topography
+plot(topography)
+
+```

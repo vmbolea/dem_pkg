@@ -32,7 +32,8 @@ library(dem)
 library(terra)
 
 #subset one county
-jacetania <- sf::st_read("data/jacetania.gpkg")
+jacetania <- jacetania |>
+  sf::st_set_geometry("geom")
 
 
 #download dem tiles for the county

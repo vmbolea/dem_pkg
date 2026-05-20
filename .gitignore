@@ -10,3 +10,6 @@ inst/doc/*.html
 .Rproj.user
 *.Rproj
 dem_tiles/
+inst/doc
+/doc/
+/Meta/
