@@ -1,0 +1,28 @@
+Package: dem
+Type: Package
+Title: Download Copernicus Digital Elevation Model at 30m or 90m Resolution from AWS Open Data
+Description: Download of the Copernicus Global Digital Elevation model (30 or 90 meters resolution) for given polygons, and computation of several topographic indicators.
+Version: 1.0.2
+Date: 2026-03-13
+Authors@R: c(person("Victor", "Martinez", role=c("aut", "cre"), email="victormartinezbolea@gmail.com"))
+Author: Victor Martinez [aut, cre]
+Maintainer: Victor Martinez <victormartinezbolea@gmail.com>
+URL: https://github.com/vmbolea/dem_pkg
+BugReports: https://github.com/vmbolea/dem_pkg/issues
+License: file LICENSE
+Depends:
+    R (>= 3.0.0)
+Imports:
+    terra,
+    sf,
+    dplyr
+Suggests:
+    roxyglobals,
+    testthat
+Roxygen: list(markdown = TRUE, roclets = c("collate", "namespace", "rd",
+    "roxyglobals::global_roclet"))
+LazyData: true
+Config/roxyglobals/filename: globals.R
+Config/roxyglobals/unique: FALSE
+Encoding: UTF-8
+Config/roxygen2/version: 8.0.0
